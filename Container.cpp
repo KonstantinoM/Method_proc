@@ -36,6 +36,7 @@ void Outcont(cont* l, ofstream &f)
 	for (int i = 0; i < n; i++)
 	{
 		Out(l->sh, f);
+		f << ", V = " << Volume(l->sh) << endl;
 		l = l->next;
 	}
 }

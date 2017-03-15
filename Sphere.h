@@ -6,9 +6,10 @@ using namespace std;
 struct Sphere
 {
 	type key;
-	float p; 
+	float p;
 	int r;
 };
 
 Sphere* InSphere(ifstream &f);
 void OutSphere(Sphere* s, ofstream &f);
+float VolumeSphere (Sphere* s);

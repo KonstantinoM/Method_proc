@@ -19,3 +19,8 @@ void OutBox(Box* bo, ofstream &f)
 {
 	f << "It's box: a = " << bo->a << ", b = " << bo->b << ", c = " << bo->c; 
 }
+
+float VolumeBox (Box* bo)
+{
+	return (bo->a*bo->b*bo->c);
+}

@@ -5,9 +5,10 @@ using namespace std;
 struct Box
 {
 	type key;
-	float p; 
+	float p;
 	int a, b, c;
 };
 
 Box* InBox(ifstream &f);
 void OutBox(Box* bo, ofstream &f);
+float VolumeBox (Box* bo);
