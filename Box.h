@@ -5,7 +5,7 @@ using namespace std;
 struct Box
 {
 	type key;
-	float p; 
+	float p;
 	int a, b, c;
 };
 

@@ -15,19 +15,24 @@ Shape* In(ifstream &f)
 			{
 				s = (Shape*)InSphere(f);
 				s->key = SPHERE;
-				f >> s->p;
 				break;
 			}
 		case 1: //Это параллелепипед
 			{
 				s = (Shape*)InBox(f);
 				s->key = BOX;
-				f >> s->p;
+				break;
+			}
+		case 2: //Это тетраэдр
+			{
+				s = (Shape*)InTetrahedron(f);
+				s->key = TETRAHEDRON;
 				break;
 			}
 		default:
 			break;
 	}
+	f >> s->p;
 	return (Shape*)s;
 }
 
@@ -43,6 +48,11 @@ void Out(Shape* s,ofstream &f)
 		case BOX:
 			{
 				OutBox((Box*)s, f);
+				break;
+			}
+		case TETRAHEDRON:
+			{
+				OutTetrahedron((Tetrahedron*)s, f);
 				break;
 			}
 		default:

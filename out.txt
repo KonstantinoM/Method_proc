@@ -1,6 +1,6 @@
 Total number = 5
-It's sphere: r = 5, p = 6
-It's box: a = 2, b = 3, c = 4, p = 5.85
-It's sphere: r = 1, p = 9.3
+It's sphere: r = 5, p = 6.1651
+It's box: a = 2, b = 3, c = 4, p = 5.165
+It's sphere: r = 1, p = 9
 It's box: a = 2, b = 3, c = 5, p = 9
 It's sphere: r = 5, p = 9
