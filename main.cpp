@@ -24,6 +24,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	Incont(l, f1);
 
 	ofstream f2(argv[2]);
+	OutcontOnlySphere(l, f2);
+	f2 << "\n\n";
 	Outcont(l, f2);
 	Clear(l);
 	return 0;

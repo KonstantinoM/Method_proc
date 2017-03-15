@@ -16,3 +16,4 @@ void Incont(cont* &l, ifstream &f);
 void Outcont(cont* l, ofstream &f);
 void Clear(cont* &l);
 void Sort(cont* &l);
+void OutcontOnlySphere(cont* l, ofstream &f);

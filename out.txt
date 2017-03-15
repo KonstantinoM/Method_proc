@@ -1,3 +1,16 @@
+Only spheres:
+1: It's sphere: r = 5, p = 6
+2: 
+3: It's sphere: r = 1, p = 9
+4: 
+5: 
+6: It's sphere: r = 5, p = 8
+7: 
+8: It's sphere: r = 9, p = 9.56
+9: 
+10: It's sphere: r = 81, p = 81
+
+
 Total number = 10
 It's sphere: r = 1, p = 9, V = 4.18879
 It's box: a = 2, b = 3, c = 4, p = 5.8958, V = 24

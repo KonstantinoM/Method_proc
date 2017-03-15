@@ -42,6 +42,24 @@ void Outcont(cont* l, ofstream &f)
 	}
 }
 
+void OutcontOnlySphere(cont* l, ofstream &f)
+{
+	int n = l->n;
+	f << "Only spheres:" <<  endl;
+	for (int i = 0; i < n; i++)
+	{
+		f << i+1 << ": ";
+		if (l->sh->key == SPHERE)
+		{
+			Out(l->sh, f);
+			f << endl;
+		}
+		else
+			f << endl;
+		l = l->next;
+	}
+}
+
 void Clear(cont* &l)
 {
 	while (l->n != 1) 
