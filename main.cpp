@@ -25,6 +25,8 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	ofstream f2(argv[2]);
 	Outcont(l, f2);
+	f2 << "\n";
+	OutcontOnlySphere(l, f2);
 	Clear(l);
 	return 0;
 }

@@ -6,7 +6,7 @@ using namespace std;
 struct Sphere
 {
 	type key;
-	float p; 
+	float p;
 	int r;
 };
 
