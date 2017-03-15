@@ -6,7 +6,10 @@ struct Box
 {
 	type key;
 	float p;
-	int a, b, c;
+	int t;
+	int a;
+	int b;
+	int c;
 };
 
 Box* InBox(ifstream &f);

@@ -33,6 +33,7 @@ Shape* In(ifstream &f)
 			break;
 	}
 	f >> s->p;
+	f >> s->t;
 	return (Shape*)s;
 }
 
@@ -58,5 +59,5 @@ void Out(Shape* s,ofstream &f)
 		default:
 			break;
 	}
-	f << ", p = " << s->p <<  endl;
+	f << ", p = " << s->p << ", t = " << s->t<< endl;
 }

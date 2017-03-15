@@ -7,6 +7,7 @@ struct Tetrahedron
 {
 	type key;
 	float p;
+	int t;
 	int a;
 };
 

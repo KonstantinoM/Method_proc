@@ -7,6 +7,7 @@ struct Sphere
 {
 	type key;
 	float p;
+	int t;
 	int r;
 };
 
