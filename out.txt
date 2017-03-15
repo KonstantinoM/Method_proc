@@ -1,6 +1,11 @@
-Total number = 5
-It's sphere: r = 5, p = 6.55, V = 523.599
-It's box: a = 2, b = 3, c = 4, p = 5.5451, V = 24
+Total number = 10
 It's sphere: r = 1, p = 9, V = 4.18879
+It's box: a = 2, b = 3, c = 4, p = 5.8958, V = 24
+It's box: a = 3, b = 3, c = 3, p = 3, V = 27
 It's box: a = 2, b = 3, c = 5, p = 9, V = 30
-It's sphere: r = 5, p = 9, V = 523.599
+It's box: a = 5, b = 7, c = 2, p = 1, V = 70
+It's box: a = 5, b = 6, c = 5, p = 8.25, V = 150
+It's sphere: r = 5, p = 6, V = 523.599
+It's sphere: r = 5, p = 8, V = 523.599
+It's sphere: r = 9, p = 9.56, V = 3053.63
+It's sphere: r = 81, p = 81, V = 2.2261e+006

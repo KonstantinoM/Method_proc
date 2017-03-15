@@ -17,7 +17,7 @@ Box* InBox(ifstream &f)
 
 void OutBox(Box* bo, ofstream &f)
 {
-	f << "It's box: a = " << bo->a << ", b = " << bo->b << ", c = " << bo->c; 
+	f << "It's box: a = " << bo->a << ", b = " << bo->b << ", c = " << bo->c;
 }
 
 float VolumeBox (Box* bo)

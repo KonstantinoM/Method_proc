@@ -15,20 +15,19 @@ Shape* In(ifstream &f)
 			{
 				s = (Shape*)InSphere(f);
 				s->key = SPHERE;
-				//f >> s->p;
+				f >> s->p;
 				break;
 			}
 		case 1: //Это параллелепипед
 			{
 				s = (Shape*)InBox(f);
 				s->key = BOX;
-				//f >> s->p;
+				f >> s->p;
 				break;
 			}
 		default:
 			break;
 	}
-	f >> s->p;
 	return (Shape*)s;
 }
 
