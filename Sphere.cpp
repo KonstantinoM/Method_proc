@@ -15,5 +15,5 @@ Sphere* InSphere(ifstream &f)
 
 void OutSphere(Sphere* s, ofstream &f)
 {
-	f << "It's sphere: r = " << s->r; 
+	f << "It's sphere: r = " << s->r;
 }

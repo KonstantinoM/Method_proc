@@ -8,6 +8,7 @@ struct Shape
 {
 	type key;
 	float p;
+	int t;
 };
 
 Shape* In(ifstream &f);

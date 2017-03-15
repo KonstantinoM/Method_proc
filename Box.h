@@ -5,8 +5,11 @@ using namespace std;
 struct Box
 {
 	type key;
-	float p; 
-	int a, b, c;
+	float p;
+	int t;
+	int a;
+	int b;
+	int c;
 };
 
 Box* InBox(ifstream &f);
