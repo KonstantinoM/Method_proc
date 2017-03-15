@@ -14,3 +14,5 @@ struct Shape
 
 Shape* In(ifstream &f);
 void Out(Shape* s,ofstream &f);
+float Volume (Shape* s);
+bool Compare(Shape *f, Shape *s);

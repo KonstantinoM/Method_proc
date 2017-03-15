@@ -14,3 +14,4 @@ struct Box
 
 Box* InBox(ifstream &f);
 void OutBox(Box* bo, ofstream &f);
+float VolumeBox (Box* bo);

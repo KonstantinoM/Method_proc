@@ -13,3 +13,4 @@ struct Sphere
 
 Sphere* InSphere(ifstream &f);
 void OutSphere(Sphere* s, ofstream &f);
+float VolumeSphere (Sphere* s);

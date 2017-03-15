@@ -33,9 +33,29 @@ void Outcont(cont* l, ofstream &f)
 {
 	int n = l->n;
 	f << "Total number = " << n <<  endl;
+	Sort(l);
 	for (int i = 0; i < n; i++)
 	{
 		Out(l->sh, f);
+		f << ", V = " << Volume(l->sh) << endl;
+		l = l->next;
+	}
+}
+
+void OutcontOnlySphere(cont* l, ofstream &f)
+{
+	int n = l->n;
+	f << "Only spheres:" <<  endl;
+	for (int i = 0; i < n; i++)
+	{
+		f << i+1 << ": ";
+		if (l->sh->key == SPHERE)
+		{
+			Out(l->sh, f);
+			f << endl;
+		}
+		else
+			f << endl;
 		l = l->next;
 	}
 }
@@ -52,4 +72,34 @@ void Clear(cont* &l)
 		l = temp;
     }
 	Init(l);
+}
+
+void Sort(cont* &l) 
+{
+	int n = l->n;
+	for (int i = 0; i < n-1; i++)
+	{
+		for (int j = i+1; j < n; j++)
+		{
+			if(Compare(l->sh, l->next->sh))
+			{
+				//cout << ", V = " << Volume(l->sh) << endl;
+				//cout << ", V = " << Volume(l->next->sh) << endl;
+				//cout << "\n";
+				cont *temp = l->next->next;
+				cont *prev = l->prev;
+				cont *next = l->next;
+				l->prev->next = next;
+				l->next->prev = prev;
+				l->next->next->prev = l;
+				l->next->next = l;
+				l->prev = next;
+				l->next = temp;
+			}
+			else
+				l = l->next;
+		}
+		for (int j = 0; j <= i; j++)
+			l = l->next;
+	}
 }

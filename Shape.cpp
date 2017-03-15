@@ -59,5 +59,29 @@ void Out(Shape* s,ofstream &f)
 		default:
 			break;
 	}
-	f << ", p = " << s->p << ", t = " << s->t<< endl;
+	f << ", p = " << s->p << ", t = " << s->t;//<< endl;
+}
+
+float Volume (Shape* s)
+{
+	switch(s->key)
+	{
+		case SPHERE:
+			{
+				return VolumeSphere((Sphere*)s);
+				break;
+			}
+		case BOX:
+			{
+				return VolumeBox((Box*)s);
+				break;
+			}
+		case TETRAHEDRON:
+			{
+				return VolumeTetrahedron((Tetrahedron*)s);
+				break;
+			}
+		default:
+			break;
+	}
 }

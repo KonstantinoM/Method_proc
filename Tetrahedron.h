@@ -13,3 +13,4 @@ struct Tetrahedron
 
 Tetrahedron* InTetrahedron(ifstream &f);
 void OutTetrahedron(Tetrahedron* t, ofstream &f);
+float VolumeTetrahedron (Tetrahedron* t);
