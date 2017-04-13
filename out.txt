@@ -1,26 +1,26 @@
+Total number = 11
+1: It's sphere: r = 1, p = 9, t = 65, V = 4.18879
+2: It's box: a = 2, b = 3, c = 4, p = 5, t = 125, V = 24
+3: It's box: a = 3, b = 3, c = 3, p = 3, t = 125, V = 27
+4: It's box: a = 2, b = 3, c = 5, p = 9, t = 89, V = 30
+5: It's box: a = 5, b = 7, c = 2, p = 1, t = 89, V = 70
+6: It's tetrahedron: a = 9, p = 9, t = 56, V = 85.9135
+7: It's box: a = 5, b = 6, c = 5, p = 8.6454, t = 56, V = 150
+8: It's box: a = 5, b = 6, c = 5, p = 8, t = 258, V = 150
+9: It's sphere: r = 5, p = 6.6165, t = 240, V = 523.599
+10: It's sphere: r = 5, p = 8, t = 240, V = 523.599
+11: It's sphere: r = 81, p = 81, t = 125, V = 2.2261e+006
+
+
 Only spheres:
-1: It's sphere: r = 5, p = 6.6165, t = 240
+1: It's sphere: r = 1, p = 9, t = 65, V = 4.18879
 2: 
-3: It's sphere: r = 1, p = 9, t = 65
+3: 
 4: 
 5: 
-6: It's sphere: r = 5, p = 8, t = 240
+6: 
 7: 
 8: 
-9: 
-10: It's sphere: r = 81, p = 81, t = 125
-11: 
-
-
-Total number = 11
-It's sphere: r = 1, p = 9, t = 65, V = 4.18879
-It's box: a = 2, b = 3, c = 4, p = 5, t = 125, V = 24
-It's box: a = 3, b = 3, c = 3, p = 3, t = 125, V = 27
-It's box: a = 2, b = 3, c = 5, p = 9, t = 89, V = 30
-It's box: a = 5, b = 7, c = 2, p = 1, t = 89, V = 70
-It's tetrahedron: a = 9, p = 9, t = 56, V = 85.9135
-It's box: a = 5, b = 6, c = 5, p = 8.6454, t = 56, V = 150
-It's box: a = 5, b = 6, c = 5, p = 8, t = 258, V = 150
-It's sphere: r = 5, p = 6.6165, t = 240, V = 523.599
-It's sphere: r = 5, p = 8, t = 240, V = 523.599
-It's sphere: r = 81, p = 81, t = 125, V = 2.2261e+006
+9: It's sphere: r = 5, p = 6.6165, t = 240, V = 523.599
+10: It's sphere: r = 5, p = 8, t = 240, V = 523.599
+11: It's sphere: r = 81, p = 81, t = 125, V = 2.2261e+006

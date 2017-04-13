@@ -36,6 +36,7 @@ void Outcont(cont* l, ofstream &f)
 	Sort(l);
 	for (int i = 0; i < n; i++)
 	{
+		f << i+1 << ": ";
 		Out(l->sh, f);
 		f << ", V = " << Volume(l->sh) << endl;
 		l = l->next;
@@ -45,6 +46,7 @@ void Outcont(cont* l, ofstream &f)
 void OutcontOnlySphere(cont* l, ofstream &f)
 {
 	int n = l->n;
+	Sort(l);
 	f << "Only spheres:" <<  endl;
 	for (int i = 0; i < n; i++)
 	{
@@ -52,7 +54,8 @@ void OutcontOnlySphere(cont* l, ofstream &f)
 		if (l->sh->key == SPHERE)
 		{
 			Out(l->sh, f);
-			f << endl;
+			f << ", V = " << Volume(l->sh) << endl;
+			//f << endl;
 		}
 		else
 			f << endl;
@@ -62,7 +65,7 @@ void OutcontOnlySphere(cont* l, ofstream &f)
 
 void Clear(cont* &l)
 {
-	while (l->n != 1) 
+	while (l->n > 1) 
 	{
 		cont* temp = new cont;
 		temp = l->next;
