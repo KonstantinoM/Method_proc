@@ -67,6 +67,14 @@ void Clear(cont* &l)
 {
 	while (l->n > 1) 
 	{
+		/*
+		cont* temp = l->next;
+		temp = l->next;
+		...
+		delete l->sh;
+		delete l;
+		...
+		*/
 		cont* temp = new cont;
 		temp = l->next;
 		temp->prev = l->prev;
@@ -101,6 +109,13 @@ void Sort(cont* &l)
 			}
 			else
 				l = l->next;
+			/*
+			if(Compare(l->sh, l->next->sh))
+			{
+				swap(l->sh,l->next->sh); //#include <algorithm>
+			}
+			else ...
+			*/
 		}
 		for (int j = 0; j <= i; j++)
 			l = l->next;
