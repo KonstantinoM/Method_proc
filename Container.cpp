@@ -17,16 +17,21 @@ void Incont(cont* &l, ifstream &f)
 {
 	f >> l->n; 
 	l->sh = In(f);
+	//cont *temp = NULL;
 	for (int i = 0; i < l->n-1; i++)
 	{
 		cont *temp = new cont;
+		//temp = new cont;
 		temp->sh = In(f);
 		temp->n = l->n-1-i;
 		temp->next = l;
+		// line of code above should be placed after the cycle ->
 		temp->prev = l->prev;
 		l->prev->next = temp;
 		l->prev = temp;
 	}
+	//if(temp != NULL) <-
+	//	temp->next = l; <-
 }
 
 void Outcont(cont* l, ofstream &f)
@@ -48,11 +53,14 @@ void OutcontOnlySphere(cont* l, ofstream &f)
 	int n = l->n;
 	Sort(l);
 	f << "Only spheres:" <<  endl;
+	//int counter = 0;
 	for (int i = 0; i < n; i++)
 	{
 		f << i+1 << ": ";
+		//line of code above may be placed into the body of the condition below ->
 		if (l->sh->key == SPHERE)
 		{
+			//f << counter++ << ": "; <-
 			Out(l->sh, f);
 			f << ", V = " << Volume(l->sh) << endl;
 			//f << endl;
