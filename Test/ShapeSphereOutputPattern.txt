@@ -1,0 +1,1 @@
+It's sphere: r = 2, p = 5, t = 65

@@ -1,0 +1,2 @@
+Total number = 1
+1: It's sphere: r = 9, p = 98, t = 354, V = 3053.63

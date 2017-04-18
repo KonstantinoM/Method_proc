@@ -1,0 +1,7 @@
+Only spheres:
+1: 
+2: 
+3: 
+4: 
+5: It's sphere: r = 6, p = 985, t = 157, V = 904.779
+6: It's sphere: r = 67, p = 87, t = 343, V = 1.25983e+006

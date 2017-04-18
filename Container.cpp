@@ -67,8 +67,7 @@ void Clear(cont* &l)
 {
 	while (l->n > 1) 
 	{
-		cont* temp = new cont;
-		temp = l->next;
+		cont* temp = l->next;
 		temp->prev = l->prev;
 		l->prev->next = temp;
 		delete l; 
@@ -89,17 +88,22 @@ void Sort(cont* &l)
 				//cout << ", V = " << Volume(l->sh) << endl;
 				//cout << ", V = " << Volume(l->next->sh) << endl;
 				//cout << "\n";
-				cont *temp = l->next->next;
-				cont *prev = l->prev;
-				cont *next = l->next;
-				l->prev->next = next;
-				l->next->prev = prev;
-				l->next->next->prev = l;
-				l->next->next = l;
-				l->prev = next;
-				l->next = temp;
+
+				//cont *temp = l->next->next;
+				//cont *prev = l->prev;
+				//cont *next = l->next;
+				//l->prev->next = next;
+				//l->next->prev = prev;
+				//l->next->next->prev = l;
+				//l->next->next = l;
+				//l->prev = next;
+				//l->next = temp;
+				cont *temp = new cont;
+				temp->sh = l->sh;
+				l->sh = l->next->sh;
+				l->next->sh = temp->sh;
 			}
-			else
+			//else
 				l = l->next;
 		}
 		for (int j = 0; j <= i; j++)
