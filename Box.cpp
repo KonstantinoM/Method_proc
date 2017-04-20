@@ -4,23 +4,31 @@
 #include <fstream>
 using namespace std;
 
-Box* InBox(ifstream &f)
+Box* InBox(ifstream &file)
 {
-	Box *B;
-	B = new Box;
-	B->key = BOX;
-	f >> B->a;
-	f >> B->b;
-	f >> B->c;
-	return (Box*)B;
+	CheckInputFile(file);
+	Box *box;
+	box = new Box;
+	box->key = BOX;
+	file >> box->a;
+	CheckInputValue(file);
+	CheckNonnegativeness(box->a);
+	file >> box->b;
+	CheckInputValue(file);
+	CheckNonnegativeness(box->b);
+	file >> box->c;
+	CheckInputValue(file);
+	CheckNonnegativeness(box->c);
+	return (Box*)box;
 }
 
-void OutBox(Box* bo, ofstream &f)
+void OutBox(Box* box, ofstream &file)
 {
-	f << "It's box: a = " << bo->a << ", b = " << bo->b << ", c = " << bo->c;
+	CheckOutputFile(file);
+	file << "It's box: a = " << box->a << ", b = " << box->b << ", c = " << box->c;
 }
 
-float VolumeBox (Box* bo)
+float VolumeBox (Box* box)
 {
-	return (bo->a*bo->b*bo->c);
+	return (box->a*box->b*box->c);
 }

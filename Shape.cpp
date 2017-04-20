@@ -4,81 +4,101 @@
 #include <fstream>
 using namespace std;
 
-Shape* In(ifstream &f)
+Shape* In(ifstream &file)
 {
-	Shape *s;
+	CheckInputFile(file);
+	if(file.eof())
+	{
+		cout << "Error. Too many shapes is specified." << endl;
+		system("pause");
+		exit(1);
+	}
+	Shape *shape;
 	int key = 0;
-	f >> key;
+	file >> key;
+	CheckInputValue(file);
+	CheckNonnegativeness(key);
+	if (key > 2)
+	{
+		cout << "Error. Incorrect values. The key can take the values 0, 1, 2." << endl;
+		system("pause");
+		exit(1);
+	}
 	switch(key)
 	{
 		case 0: //Это сфера
 			{
-				s = (Shape*)InSphere(f);
-				s->key = SPHERE;
+				shape = (Shape*)InSphere(file);
+				shape->key = SPHERE;
 				break;
 			}
 		case 1: //Это параллелепипед
 			{
-				s = (Shape*)InBox(f);
-				s->key = BOX;
+				shape = (Shape*)InBox(file);
+				shape->key = BOX;
 				break;
 			}
 		case 2: //Это тетраэдр
 			{
-				s = (Shape*)InTetrahedron(f);
-				s->key = TETRAHEDRON;
+				shape = (Shape*)InTetrahedron(file);
+				shape->key = TETRAHEDRON;
 				break;
 			}
 		default:
 			break;
 	}
-	f >> s->p;
-	f >> s->t;
-	return (Shape*)s;
+	file >> shape->density;
+	CheckInputValue(file);
+	CheckNonnegativeness(shape->density);
+	file >> shape->temperature;
+	CheckInputValue(file);
+	CheckNonnegativeness(shape->temperature);
+	return (Shape*)shape;
 }
 
-void Out(Shape* s,ofstream &f)
+void Out(Shape* shape,ofstream &file)
 {
-	switch(s->key)
+	CheckOutputFile(file);
+	switch(shape->key)
 	{
 		case SPHERE:
 			{
-				OutSphere((Sphere*)s, f);
+				OutSphere((Sphere*)shape, file);
 				break;
 			}
 		case BOX:
 			{
-				OutBox((Box*)s, f);
+				OutBox((Box*)shape, file);
 				break;
 			}
 		case TETRAHEDRON:
 			{
-				OutTetrahedron((Tetrahedron*)s, f);
+				OutTetrahedron((Tetrahedron*)shape, file);
 				break;
 			}
 		default:
 			break;
 	}
-	f << ", p = " << s->p << ", t = " << s->t;//<< endl;
+	file << ", p = " << shape->density << ", t = " << shape->temperature;//<< endl;
 }
 
-float Volume (Shape* s)
+float Volume (Shape* shape)
 {
-	switch(s->key)
+	switch(shape->key)
 	{
 		case SPHERE:
 			{
-				return VolumeSphere((Sphere*)s);
+				return VolumeSphere((Sphere*)shape);
 				break;
 			}
 		case BOX:
 			{
-				return VolumeBox((Box*)s);
+				return VolumeBox((Box*)shape);
 				break;
 			}
 		case TETRAHEDRON:
 			{
-				return VolumeTetrahedron((Tetrahedron*)s);
+				return VolumeTetrahedron((Tetrahedron*)shape);
 				break;
 			}
 		default:

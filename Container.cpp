@@ -4,109 +4,120 @@
 #include <fstream>
 using namespace std;
 
-void Init(cont* &l)
+void Init(Container* &container)
 {
-	l= new cont;
-	l->sh = NULL;
-	l->n = 0;
-	l->next = l; 
-	l->prev = l;
+	container = new Container;
+	container->shape = NULL;
+	container->n = 0;
+	container->next = container; 
+	container->prev = container;
 }
 
-void Incont(cont* &l, ifstream &f)
+void InContainer(Container* &container, ifstream &file)
 {
-	f >> l->n; 
-	l->sh = In(f);
-	for (int i = 0; i < l->n-1; i++)
+	CheckInputFile(file);
+	file >> container->n;
+	CheckInputValue(file);
+	CheckNonnegativeness(container->n);
+	container->shape = In(file);
+	for (int i = 0; i < container->n-1; i++)
 	{
-		cont *temp = new cont;
-		temp->sh = In(f);
-		temp->n = l->n-1-i;
-		temp->next = l;
-		temp->prev = l->prev;
-		l->prev->next = temp;
-		l->prev = temp;
+		Container *temp = new Container;
+		temp->shape = In(file);
+		temp->n = container->n-1-i;
+		temp->next = container;
+		temp->prev = container->prev;
+		container->prev->next = temp;
+		container->prev = temp;
+	}
+	if(!file.eof())
+	{
+		cout << "Error. There's some odd data" << endl;
+		system("pause");
+		exit(1);
 	}
 }
 
-void Outcont(cont* l, ofstream &f)
+void OutContainer(Container* container, ofstream &file)
 {
-	int n = l->n;
-	f << "Total number = " << n <<  endl;
-	Sort(l);
+	CheckOutputFile(file);
+	int n = container->n;
+	file << "Total number = " << n <<  endl;
+	Sort(container);
 	for (int i = 0; i < n; i++)
 	{
-		f << i+1 << ": ";
-		Out(l->sh, f);
-		f << ", V = " << Volume(l->sh) << endl;
-		l = l->next;
+		file << i+1 << ": ";
+		Out(container->shape, file);
+		file << ", V = " << Volume(container->shape) << endl;
+		container = container->next;
 	}
 }
 
-void OutcontOnlySphere(cont* l, ofstream &f)
+void OutContainerOnlySphere(Container* container, ofstream &file)
 {
-	int n = l->n;
-	Sort(l);
-	f << "Only spheres:" <<  endl;
+	CheckOutputFile(file);
+	int n = container->n;
+	Sort(container);
+	file << "Only spheres:" <<  endl;
 	for (int i = 0; i < n; i++)
 	{
-		f << i+1 << ": ";
-		if (l->sh->key == SPHERE)
+		file << i+1 << ": ";
+		if (container->shape->key == SPHERE)
 		{
-			Out(l->sh, f);
-			f << ", V = " << Volume(l->sh) << endl;
+			Out(container->shape, file);
+			file << ", V = " << Volume(container->shape) << endl;
 			//f << endl;
 		}
 		else
-			f << endl;
-		l = l->next;
+			file << endl;
+		container = container->next;
 	}
 }
 
-void Clear(cont* &l)
+void Clear(Container* &container)
 {
-	while (l->n > 1) 
+	while (container->n > 1) 
 	{
-		cont* temp = l->next;
-		temp->prev = l->prev;
-		l->prev->next = temp;
-		delete l; 
-		l = temp;
+		Container* temp = container->next;
+		temp->prev = container->prev;
+		container->prev->next = temp;
+		delete container; 
+		container = temp;
     }
-	Init(l);
+	Init(container);
 }
 
-void Sort(cont* &l) 
+void Sort(Container* &container) 
 {
-	int n = l->n;
+	int n = container->n;
 	for (int i = 0; i < n-1; i++)
 	{
 		for (int j = i+1; j < n; j++)
 		{
-			if(Compare(l->sh, l->next->sh))
+			if(Compare(container->shape, container->next->shape))
 			{
 				//cout << ", V = " << Volume(l->sh) << endl;
 				//cout << ", V = " << Volume(l->next->sh) << endl;
 				//cout << "\n";
 
-				//cont *temp = l->next->next;
-				//cont *prev = l->prev;
-				//cont *next = l->next;
+				//Container *temp = l->next->next;
+				//Container *prev = l->prev;
+				//Container *next = l->next;
 				//l->prev->next = next;
 				//l->next->prev = prev;
 				//l->next->next->prev = l;
 				//l->next->next = l;
 				//l->prev = next;
 				//l->next = temp;
-				cont *temp = new cont;
-				temp->sh = l->sh;
-				l->sh = l->next->sh;
-				l->next->sh = temp->sh;
+				Container *temp = new Container;
+				temp->shape = container->shape;
+				container->shape = container->next->shape;
+				container->next->shape = temp->shape;
 			}
 			//else
-				l = l->next;
+				container = container->next;
 		}
 		for (int j = 0; j <= i; j++)
-			l = l->next;
+			container = container->next;
 	}
 }

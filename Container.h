@@ -3,17 +3,17 @@
 #include <fstream>
 using namespace std;
 
-struct cont
+struct Container
 {
 	int n;
-	Shape* sh;
-	cont *next;
-	cont *prev;
+	Shape* shape;
+	Container *next;
+	Container *prev;
 };
 
-void Init(cont* &l);
-void Incont(cont* &l, ifstream &f);
-void Outcont(cont* l, ofstream &f);
-void Clear(cont* &l);
-void Sort(cont* &l);
-void OutcontOnlySphere(cont* l, ofstream &f);
+void Init(Container* &container);
+void InContainer(Container* &container, ifstream &file);
+void OutContainer(Container* container, ofstream &file);
+void Clear(Container* &container);
+void Sort(Container* &container);
+void OutContainerOnlySphere(Container* container, ofstream &file);

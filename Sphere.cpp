@@ -5,23 +5,27 @@
 #include "math.h"
 using namespace std;
 
-#define M_PI 3.1415926535897932384626433832795
+#define PI 3.1415926535897932384626433832795
 
-Sphere* InSphere(ifstream &f)
+Sphere* InSphere(ifstream &file)
 {
-	Sphere *Sp;
-	Sp = new Sphere;
-	Sp->key = SPHERE;
-	f >> Sp->r;
-	return (Sphere*)Sp;
+	CheckInputFile(file);
+	Sphere *sphere;
+	sphere = new Sphere;
+	sphere->key = SPHERE;
+	file >> sphere->r;
+	CheckInputValue(file);
+	CheckNonnegativeness(sphere->r);
+	return (Sphere*)sphere;
 }
 
-void OutSphere(Sphere* s, ofstream &f)
+void OutSphere(Sphere* sphere, ofstream &file)
 {
-	f << "It's sphere: r = " << s->r;
+	CheckOutputFile(file);
+	file << "It's sphere: r = " << sphere->r;
 }
 
-float VolumeSphere (Sphere* s)
+float VolumeSphere (Sphere* sphere)
 {
-	return (float(4)/float(3)*M_PI*pow(s->r, 3.0));
+	return (float(4)/float(3)*PI*pow(sphere->r, 3.0));
 }

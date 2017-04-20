@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Shape.h"
 
-bool Compare(Shape *f, Shape *s)
+bool Compare(Shape *shape1, Shape *shape2)
 {
-	return Volume(f) > Volume(s);
+	return Volume(shape1) > Volume(shape2);
 }

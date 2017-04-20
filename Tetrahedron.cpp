@@ -5,21 +5,25 @@
 #include "math.h"
 using namespace std;
 
-Tetrahedron* InTetrahedron(ifstream &f)
+Tetrahedron* InTetrahedron(ifstream &file)
 {
-	Tetrahedron *T;
-	T = new Tetrahedron;
-	T->key = TETRAHEDRON;
-	f >> T->a;
-	return (Tetrahedron*)T;
+	CheckInputFile(file);
+	Tetrahedron *tetrahedron;
+	tetrahedron = new Tetrahedron;
+	tetrahedron->key = TETRAHEDRON;
+	file >> tetrahedron->a;
+	CheckInputValue(file);
+	CheckNonnegativeness(tetrahedron->a);
+	return (Tetrahedron*)tetrahedron;
 }
 
-void OutTetrahedron(Tetrahedron* t, ofstream &f)
+void OutTetrahedron(Tetrahedron* tetrahedron, ofstream &file)
 {
-	f << "It's tetrahedron: a = " << t->a;
+	CheckOutputFile(file);
+	file<< "It's tetrahedron: a = " << tetrahedron->a;
 }
 
-float VolumeTetrahedron (Tetrahedron* t)
+float VolumeTetrahedron (Tetrahedron* tetrahedron)
 {
-	return ((sqrt(2.0))*pow(t->a,3.0)/12);
+	return ((sqrt(2.0))*pow(tetrahedron->a,3.0)/12);
 }

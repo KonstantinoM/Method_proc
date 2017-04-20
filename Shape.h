@@ -8,11 +8,11 @@ using namespace std;
 struct Shape
 {
 	type key;
-	float p;
-	int t;
+	float density;
+	int temperature;
 };
 
-Shape* In(ifstream &f);
-void Out(Shape* s,ofstream &f);
-float Volume (Shape* s);
-bool Compare(Shape *f, Shape *s);
+Shape* In(ifstream &file);
+void Out(Shape* shape,ofstream &file);
+float Volume (Shape* shape);
+bool Compare(Shape* shape1, Shape*shape2);

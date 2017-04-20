@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "windows.h"
 #include "Container.h"
 using namespace std;
@@ -12,22 +13,32 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	if(argc !=3) 
 	{
-		cout << "incorrect command line! "
-				"Waited: command in_file out_file" 
-				 << endl;
+		cout << "Error. Incorrect command line! Waited: command in_file out_file" << endl;
 		return 0;
 	}
-	ifstream f1(argv[1]);
+	ifstream inputFile(argv[1]);
+	CheckInputFile(inputFile);
 
-	cont *l = NULL;
-	Init(l);
-	Incont(l, f1);
+	inputFile.seekg (0, std::ios::end); 
+	int fileSize = inputFile.tellg(); 
+	inputFile.seekg (0, std::ios::beg); 
+	if (fileSize == 0) 
+	{ 
+			cout << "Error. Input file is empty." << endl;
+			system("pause");
+			return 0;
+	}
 
-	ofstream f2(argv[2]);
-	Outcont(l, f2);
-	f2 << "\n\n";
-	OutcontOnlySphere(l, f2);
-	Clear(l);
+	Container *container = NULL;
+	Init(container);
+	InContainer(container, inputFile);
+
+	ofstream outputFile(argv[2]);
+	CheckOutputFile(outputFile);
+	OutContainer(container, outputFile);
+	outputFile << "\n\n";
+	OutContainerOnlySphere(container, outputFile);
+	Clear(container);
 	return 0;
 }
 

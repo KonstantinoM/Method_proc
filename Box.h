@@ -1,17 +1,18 @@
 #include "Enu.h"
+#include "SecureCoding.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
 struct Box
 {
 	type key;
-	float p;
-	int t;
+	float density;
+	int temperature;
 	int a;
 	int b;
 	int c;
 };
 
-Box* InBox(ifstream &f);
-void OutBox(Box* bo, ofstream &f);
-float VolumeBox (Box* bo);
+Box* InBox(ifstream &file);
+void OutBox(Box* box, ofstream &file);
+float VolumeBox (Box* box);
