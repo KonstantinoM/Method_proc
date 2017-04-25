@@ -38,6 +38,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	OutContainer(container, outputFile);
 	outputFile << "\n\n";
 	OutContainerOnlySphere(container, outputFile);
+	MultiMethod(container, outputFile);
 	Clear(container);
 	return 0;
 }

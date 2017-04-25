@@ -17,3 +17,4 @@ void OutContainer(Container* container, ofstream &file);
 void Clear(Container* &container);
 void Sort(Container* &container);
 void OutContainerOnlySphere(Container* container, ofstream &file);
+void MultiMethod(Container* container, ofstream &file);

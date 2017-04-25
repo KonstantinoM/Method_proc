@@ -121,3 +121,112 @@ void Sort(Container* &container)
 			container = container->next;
 	}
 }
+
+void MultiMethod(Container* container, ofstream &file)
+{
+	file << endl << "Multimethod:" << endl;
+	Container *temp1 = container;
+	Container *temp2 = container;
+	while(temp1->next != container)
+	{
+		temp2 = temp1->next;
+		while (temp2 != container) 
+		{
+			switch(temp1->shape->key)
+			{
+			case SPHERE:
+				{
+					switch(temp2->shape->key)
+					{
+					case SPHERE:
+						{
+							file << "Sphere and Sphere:" << endl;
+							break;
+						}
+					case BOX:
+						{
+							file << "Sphere and Box:" << endl;
+							break;
+						}
+					case TETRAHEDRON:
+						{
+							file << "Sphere and Tetrahedron:" << endl;
+							break;
+						}
+					default:
+						{
+							file << "Unknown type" << endl;
+							break;
+						}
+					}
+					break;
+				}
+			case BOX:
+				{
+					switch(temp2->shape->key)
+					{
+					case SPHERE:
+						{
+							file << "Box and Sphere:" << endl;
+							break;
+						}
+					case BOX:
+						{
+							file << "Box and Box:" << endl;
+							break;
+						}
+					case TETRAHEDRON:
+						{
+							file << "Box and Tetrahedron:" << endl;
+							break;
+						}
+					default:
+						{
+							file << "Unknown type" << endl;
+							break;
+						}
+					}
+					break;
+				}
+			case TETRAHEDRON:
+				{
+					switch(temp2->shape->key)
+					{
+					case SPHERE:
+						{
+							file << "Tetrahedron and Sphere:" << endl;
+							break;
+						}
+					case BOX:
+						{
+							file << "Tetrahedron and Box:" << endl;
+							break;
+						}
+					case TETRAHEDRON:
+						{
+							file << "Tetrahedron and Tetrahedron:" << endl;
+							break;
+						}
+					default:
+						{
+							file << "Unknown type" << endl;
+							break;
+						}
+					}
+					break;
+				}
+			default:
+				{	
+					file << "Unknown type" << endl;
+					break;
+				}
+			}
+			Out(temp1->shape, file);
+			file << ", V = " << Volume(temp1->shape) << endl;
+			Out(temp2->shape, file);
+			file << ", V = " << Volume(temp2->shape) << endl << endl;; 
+			temp2 = temp2->next;
+		}
+		temp1 = temp1->next;
+	}
+}
