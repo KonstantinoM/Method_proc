@@ -53,3 +53,75 @@ void Clear(cont* &l)
     }
 	Init(l);
 }
+
+void MultiMethod(cont* l, ofstream &f)
+{
+	f << endl << "Multimethod:" << endl;
+	cont *temp1 = l;
+	cont *temp2 = l;
+	while(temp1->next != l)
+	{
+		temp2 = temp1->next;
+		while (temp2 != l) 
+		{
+			switch(temp1->sh->key)
+			{
+			case SPHERE:
+				{
+					switch(temp2->sh->key)
+					{
+					case SPHERE:
+						{
+							f << "Sphere and Sphere:" << endl;
+							break;
+						}
+					case BOX:
+						{
+							f << "Sphere and Box:" << endl;
+							break;
+						}
+					default:
+						{
+							f << "Unknown type" << endl;
+							break;
+						}
+					}
+					break;
+				}
+			case BOX:
+				{
+					switch(temp2->sh->key)
+					{
+					case SPHERE:
+						{
+							f << "Box and Sphere:" << endl;
+							break;
+						}
+					case BOX:
+						{
+							f << "Box and Box:" << endl;
+							break;
+						}
+					default:
+						{
+							f << "Unknown type" << endl;
+							break;
+						}
+					}
+					break;
+				}
+			default:
+				{	
+					f << "Unknown type" << endl;
+					break;
+				}
+			}
+			Out(temp1->sh, f);
+			Out(temp2->sh, f);
+			f << endl;
+			temp2 = temp2->next;
+		}
+		temp1 = temp1->next;
+	}
+
+}

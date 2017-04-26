@@ -25,6 +25,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	ofstream f2(argv[2]);
 	Outcont(l, f2);
+	MultiMethod(l, f2);
 	Clear(l);
 	return 0;
 }

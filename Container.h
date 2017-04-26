@@ -15,3 +15,4 @@ void Init(cont* &l);
 void Incont(cont* &l, ifstream &f);
 void Outcont(cont* l, ofstream &f);
 void Clear(cont* &l);
+void MultiMethod(cont* l, ofstream &f);

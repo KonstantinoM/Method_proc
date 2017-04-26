@@ -4,3 +4,45 @@ It's box: a = 2, b = 3, c = 4, p = 5.85
 It's sphere: r = 1, p = 9.3
 It's box: a = 2, b = 3, c = 5, p = 9
 It's sphere: r = 5, p = 9
+
+Multimethod:
+Sphere and Box:
+It's sphere: r = 5, p = 6
+It's box: a = 2, b = 3, c = 4, p = 5.85
+
+Sphere and Sphere:
+It's sphere: r = 5, p = 6
+It's sphere: r = 1, p = 9.3
+
+Sphere and Box:
+It's sphere: r = 5, p = 6
+It's box: a = 2, b = 3, c = 5, p = 9
+
+Sphere and Sphere:
+It's sphere: r = 5, p = 6
+It's sphere: r = 5, p = 9
+
+Box and Sphere:
+It's box: a = 2, b = 3, c = 4, p = 5.85
+It's sphere: r = 1, p = 9.3
+
+Box and Box:
+It's box: a = 2, b = 3, c = 4, p = 5.85
+It's box: a = 2, b = 3, c = 5, p = 9
+
+Box and Sphere:
+It's box: a = 2, b = 3, c = 4, p = 5.85
+It's sphere: r = 5, p = 9
+
+Sphere and Box:
+It's sphere: r = 1, p = 9.3
+It's box: a = 2, b = 3, c = 5, p = 9
+
+Sphere and Sphere:
+It's sphere: r = 1, p = 9.3
+It's sphere: r = 5, p = 9
+
+Box and Sphere:
+It's box: a = 2, b = 3, c = 5, p = 9
+It's sphere: r = 5, p = 9
+
